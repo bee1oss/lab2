@@ -22,6 +22,13 @@ public class Main {
         System.out.println("Чтение исходных данных:");
         dataSource.LoadData(args[0], data);
 
-        
+        DataStatistics.collect(data);
+        TreeMap<String, Integer> stat = DataStatistics.collect(data);
+        for (String name: stat.keySet())
+        {
+            //String key = name.toString();
+            String value = stat.get(name).toString();      // выводится ключ + значение словаря
+            System.out.println(name + ": " + value);
+        }
     }
 }
